@@ -5,10 +5,22 @@ edition = "2021"
 description = "Pre-compiled gRPC client and server stubs for the Envoy ext_proc protocol"
 license = "MIT"
 
+[[bin]]
+name = "server"
+path = "server.rs"
+
+
 [dependencies]
 prost = "0.11"
 prost-types = "0.11"
 tonic = "0.8"
+tokio = { version = "1.0", features = ["rt-multi-thread", "macros"] }
+tokio-stream = { version = "0.1" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+tracing = { version = "0.1.16" }
+h2 = { version = "0.3" }
+
 
 [build-dependencies]
 prost-build = "0.11"

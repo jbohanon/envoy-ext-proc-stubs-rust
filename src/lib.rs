@@ -1,8 +1,9 @@
+
 pub mod envoy {
     pub mod config {
         pub mod core {
             pub mod v3 {
-                include!(concat!(env!("OUT_DIR"), "/envoy.config.core.v3.rs"));
+                tonic::include_proto!("envoy.config.core.v3");
             }
         }
     }
@@ -11,10 +12,7 @@ pub mod envoy {
             pub mod http {
                 pub mod ext_proc {
                     pub mod v3 {
-                        include!(concat!(
-                            env!("OUT_DIR"),
-                            "/envoy.extensions.filters.http.ext_proc.v3.rs"
-                        ));
+                        tonic::include_proto!("envoy.extensions.filters.http.ext_proc.v3");
                     }
                 }
             }
@@ -22,37 +20,37 @@ pub mod envoy {
     }
     pub mod r#type {
         pub mod v3 {
-            include!(concat!(env!("OUT_DIR"), "/envoy.r#type.v3.rs"));
+            tonic::include_proto!("envoy.r#type.v3");
         }
     }
     pub mod service {
         pub mod ext_proc {
             pub mod v3 {
-                include!(concat!(env!("OUT_DIR"), "/envoy.service.ext_proc.v3.rs"));
+                tonic::include_proto!("envoy.service.ext_proc.v3");
             }
         }
     }
 }
 
 pub mod validate {
-    include!(concat!(env!("OUT_DIR"), "/validate.rs"));
+    tonic::include_proto!("validate");
 }
 
 pub mod udpa {
     pub mod annotations {
-        include!(concat!(env!("OUT_DIR"), "/udpa.annotations.rs"));
+        tonic::include_proto!("udpa.annotations");
     }
 }
 
 pub mod xds {
     pub mod annotations {
         pub mod v3 {
-            include!(concat!(env!("OUT_DIR"), "/xds.annotations.v3.rs"));
+            tonic::include_proto!("xds.annotations.v3");
         }
     }
     pub mod core {
         pub mod v3 {
-            include!(concat!(env!("OUT_DIR"), "/xds.core.v3.rs"));
+            tonic::include_proto!("xds.core.v3");
         }
     }
 }

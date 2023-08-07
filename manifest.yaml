@@ -37,7 +37,7 @@ spec:
         env:
         - name: RUST_LOG
           value: "trace"
-        image: docker.io/library/myimage
+        image: bohanon/ext_proc-server:0.0.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9090
